@@ -546,6 +546,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-size: cover;
   background-repeat: no-repeat;
 }
+/* Newsletter Desktop */
 .newsletter-bx {
   background: #FFFFFF;
   border-radius: 55px;
@@ -597,15 +598,90 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background: transparent;
   border: 0;
   padding: 0 15px;
+  height: 45px; /* desktop tinggi input */
 }
 .new-email-bx button {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 20px 65px;
+  padding: 15px 50px;
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.5px;
   border-radius: 18px;
+  height: 45px;
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+  .newsletter-bx {
+    padding: 50px 30px; /* lebih kecil agar muat layar */
+    margin-top: -80px;
+    text-align: center; /* center teks & form */
+  }
+
+  .newsletter-bx h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .new-email-bx {
+    display: flex;
+    justify-content: center; /* center input & button */
+    align-items: center;
+    flex-wrap: nowrap; /* jangan wrap, biar input & button sejajar */
+    gap: 10px; /* jarak antara input dan button */
+  }
+
+  .new-email-bx input {
+    flex: 1 1 auto; /* input fleksibel */
+    min-width: 200px; /* minimal lebar input */
+    padding: 10px 15px;
+    height: 40px; /* sama dengan button */
+    font-size: 1rem;
+  }
+
+  .new-email-bx button {
+    padding: 10px 30px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .newsletter-bx {
+    padding: 40px 20px;
+    margin-top: -50px;
+  }
+  .newsletter-bx h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .new-email-bx {
+    flex-direction: row; /* jangan column, agar input + button sejajar */
+    align-items: center;
+    padding: 0; /* hapus padding wrapper */
+  }
+  .new-email-bx input {
+    width: auto; /* fit dengan teks */
+    flex: 1;
+    font-size: 0.95rem;
+    padding: 6px 10px; /* kecil */
+    height: 45px; /* tinggi fix lebih pendek */
+  }
+  .new-email-bx button {
+    padding: 6px 15px; /* kecil */
+    height: 30px; /* sama tinggi input */
+    font-size: 0.95rem;
+    margin-left: 6px; /* beri jarak kecil dari input */
+  }
+  /* Sesuaikan pseudo element agar tidak menambah tinggi */
+  .new-email-bx::before,
+  .new-email-bx::after {
+    top: 0;
+    bottom: 0;
+  }
+}
+
 .footer img {
   width: 26%;
 }
