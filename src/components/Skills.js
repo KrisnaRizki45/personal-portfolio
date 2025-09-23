@@ -96,10 +96,10 @@ export const Skills = () => {
                     <Card.Body>
                       <CodeSlash size={45} className="mb-3 text-info" />
                       <Card.Title className="fw-bold">
-                        Web Development
+                        Web Developer
                       </Card.Title>
                       <Card.Text>
-                        React.js, Laravel, HTML, CSS, JavaScript, MySQL
+                        React.js, Laravel, HTML, CSS, JavaScript, PHP, MySQL
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -148,6 +148,49 @@ export const Skills = () => {
                     </Card.Body>
                   </Card>
                 </div>
+
+                {/* Sistem Operasi */}
+              <div className="item">
+                <Card
+                  className="text-center shadow-lg border-0"
+                  style={{
+                    minHeight: "220px",
+                    borderRadius: "20px",
+                    background: "rgba(0,0,0,0.5)",
+                    transition: "transform 0.3s ease",
+                  }}
+                >
+                  <Card.Body>
+                    <CodeSlash size={45} className="mb-3 text-primary" />
+                    <Card.Title className="fw-bold">Sistem Operasi</Card.Title>
+                    <Card.Text>
+                      Windows, Linux, macOS
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+
+              {/* Microsoft Office */}
+              <div className="item">
+                <Card
+                  className="text-center shadow-lg border-0"
+                  style={{
+                    minHeight: "220px",
+                    borderRadius: "20px",
+                    background: "rgba(0,0,0,0.5)",
+                    transition: "transform 0.3s ease",
+                  }}
+                >
+                  <Card.Body>
+                    <CheckCircle size={45} className="mb-3 text-warning" />
+                    <Card.Title className="fw-bold">Microsoft Office</Card.Title>
+                    <Card.Text>
+                      Word, Excel, PowerPoint, Outlook
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+
               </Carousel>
             </div>
           </div>

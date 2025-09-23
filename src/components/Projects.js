@@ -9,46 +9,125 @@ import {
   Button,
   Carousel,
 } from "react-bootstrap";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
 export const Projects = () => {
   const projects = [
-    {
-      title: "Business Startup",
-      description: "Website landing page untuk startup bisnis.",
-      detail:
-        "Project ini dibuat menggunakan React.js & Bootstrap. Fitur utama berupa landing page responsif dengan animasi modern.",
-      tech: ["React.js", "Bootstrap", "CSS3"],
-      imgUrl: [projImg1, projImg2, projImg3],
-      github: "https://github.com/username/project1",
-      category: "web",
-    },
-    {
-      title: "Portfolio Website",
-      description: "Personal portfolio interaktif.",
-      detail:
-        "Website ini menampilkan portofolio pribadi dengan animasi menggunakan Animate.css dan library Carousel.",
-      tech: ["React.js", "Animate.css", "React-Bootstrap"],
-      imgUrl: [projImg2, projImg3],
-      github: "https://github.com/username/project2",
-      category: "web",
-    },
-    {
-      title: "E-Commerce App",
-      description: "Aplikasi belanja online fullstack.",
-      detail:
-        "E-Commerce App ini dibuat menggunakan Laravel untuk backend, MySQL untuk database, dan React untuk frontend.",
-      tech: ["Laravel", "MySQL", "React.js"],
-      imgUrl: [projImg3, projImg1],
-      github: "https://github.com/username/project3",
-      category: "other",
-    },
-  ];
+  {
+    title: "Ardexa",
+    description: "Web Company Ardexa",
+    detail: "Website perusahaan PT Arsa Dalu Kreasi yang menampilkan layanan informasi lengkap mengenai perusahaan termasuk informasi karir dengan tampilan yang responsive",
+    tech: ["React JS", "Tailwind CSS", "Node JS"],
+    imgUrl: [
+      "/images/ardexa1.png",
+      "/images/ardexa2.png",
+      "/images/ardexa3.png",
+      "/images/ardexa4.png",
+      "/images/ardexa5.png",
+      "/images/ardexa6.png",
+      "/images/ardexa7.png"
+    ],
+    github: "https://github.com/KrisnaRizki45/PT.-ADK",
+    category: "web",
+  },
+  {
+    title: "JacketPedia",
+    description: "Website E-Commerce ",
+    detail: "Sebuah website e-commerce yang menjual jaket trendy dengan sistem manajemen keranjang belanja dan checkout untuk kebutuhan tugas akhir sekolah",
+    tech: ["HTML", "CSS", "JavaScript", "Vue JS"],
+    imgUrl: [
+      "/images/E-Commerce1.png",
+      "/images/E-Commerce2.png",
+      "/images/E-Commerce3.png"
+    ],
+    github: "https://github.com/KrisnaRizki45/JacketPedia",
+    category: "web",
+  },
+  {
+    title: "E-Lib",
+    description: "Aplikasi Perpustakaan",
+    detail: "Merupakan aplikasi perpustakaan digital SMKN 4 Bandung website yang dinamis dengan sistem role admin staff siswa memiliki database",
+    tech: ["Laravel", "PHP", "MySQL"],
+    imgUrl: [
+      "/images/E-Lib1.png",
+      "/images/E-Lib2.png",
+      "/images/E-Lib3.png"
+    ],
+    github: "#",
+    category: "web",
+  },
+  {
+    title: "GerobakIn",
+    description: "Aplikasi penitipan gerobak",
+    detail: "Merupakan aplikasi penitipan gerobak dengan sistem crud, login jwt, token, dan database dengan tampilan responsive",
+    tech: ["React.js", "Bootstrap", "Laravel", "MySQL", "JWT Token", "CRUD"],
+    imgUrl: [
+      "/images/gerobak5.png",
+      "/images/gerobak6.png",
+      "/images/gerobak7.png",
+      "/images/gerobak8.png",
+      "/images/gerobak9.png",
+      "/images/gerobak10.png",
+      "/images/gerobak1.png",
+      "/images/gerobak2.png",
+      "/images/gerobak3.png",
+      "/images/gerobak4.png",
+    ],
+    github: "https://github.com/KrisnaRizki45/GerobakIn",
+    category: "web",
+  },
+  {
+    title: "Laundry App",
+    description: "Sistem manajemen laundry",
+    detail: "Aplikasi sistem manajemen laundry dengan sistem CRUD, Login JWT Token, Registrasi, dan api buatan dengan tampilan responsive",
+    tech: ["React.js", "Bootstrap", "HeroUI", "Tailwind CSS"],
+    imgUrl: [
+      "/images/laundry3.png",
+      "/images/laundry4.png",
+      "/images/laundry5.png",
+      "/images/laundry6.png",
+      "/images/laundry7.png",
+      "/images/laundry8.png",
+      "/images/laundry9.png",
+      "/images/laundry10.png",
+      "/images/laundry11.png",
+      "/images/laundry12.png",
+      "/images/laundry13.png",
+      "/images/laundry1.png",
+      "/images/laundry2.png",
+    ],
+    github: "https://github.com/KrisnaRizki45/laundry-app",
+    category: "web",
+  },
+  {
+    title: "Movify",
+    description: "Website streaming film",
+    detail: "Website streaming film dengan api dari TMDB yang responsive",
+    tech: ["React.js", "Bootstrap", "Tailwind CSS", "API TMDB"],
+    imgUrl: [
+      "/images/movify1.png",
+      "/images/movify2.png",
+      "/images/movify3.png",
+      "/images/movify4.png"
+    ],
+    github: "https://github.com/KrisnaRizki45/Challange-react-movie",
+    category: "other",
+  },
+  {
+    title: "Content Creator",
+    description: "Sosial Media Perusahaan",
+    detail: "Profile sosial media dari perusahaan yang saya sebagai content creator nya di Instagram dan Tiktok",
+    tech: ["Canva", "Capcut"],
+    imgUrl: [
+      "/images/contentCreator1.png",
+      "/images/contentCreator2.png",
+    ],
+    github: "#",
+    category: "other",
+  },
+];
 
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -350,22 +429,4 @@ export const Projects = () => {
       />
     </section>
   );
-};
-
-// Styles untuk carousel arrows
-const carouselArrowStyle = {
-  background: "rgba(0,0,0,0.3)",
-  borderRadius: "50%",
-  width: "40px",
-  height: "40px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  color: "white",
-  fontSize: "1.5rem",
-  cursor: "pointer",
-  textDecoration: "none",
-  outline: "none",
-  transition: "all 0.3s ease",
-  filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.5))",
 };

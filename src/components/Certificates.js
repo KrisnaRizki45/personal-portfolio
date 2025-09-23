@@ -17,41 +17,41 @@ export const Certificates = () => {
     {
       title: "Database MySQL",
       issuer: "Oracle Academy",
-      date: "2023",
+      date: "2025",
       description:
         "Certificate of Completion Database MySQL dari Oracle Academy.",
       imgUrl: [certMysql],
     },
     {
-      title: "Cypress End-to-End Testing",
-      issuer: "Udemy",
+      title: "Internship QA",
+      issuer: "Neuronworks",
       date: "2024",
       description:
-        "Sertifikasi Cypress untuk pengujian otomatis aplikasi web.",
+        "Sertifikasi telah menyelesaikan internship sebagai software QA di PT Neuronworks Indonesia",
       imgUrl: [internshipQA],
     },
     {
-      title: "React Frontend Development",
-      issuer: "EnigmaCamp",
+      title: "Competence QA",
+      issuer: "Neuronwokrs",
       date: "2025",
       description:
-        "Sertifikat React Developer untuk membangun aplikasi modern dengan React.",
+        "Sertifikat pengakuan kompetensi sebagai Software QA dengan nilai 96 kategori kompeten oleh PT Neuronworks Indonesia",
       imgUrl: [competenceQA1, competenceQA2],
     },
     {
-      title: "React Frontend Development",
-      issuer: "EnigmaCamp",
+      title: "TOEIC",
+      issuer: "ETS",
       date: "2025",
       description:
-        "Sertifikat React Developer untuk membangun aplikasi modern dengan React.",
+        "Sertifikat hasil tes uji kemahiran bahasa inggris TOEIC yang dikeluarkan oleh ETS berlaku sampai tahun 2026",
       imgUrl: [toeic],
     },
     {
-      title: "React Frontend Development",
-      issuer: "EnigmaCamp",
+      title: "UKBI",
+      issuer: "Kemendikbudristek",
       date: "2025",
       description:
-        "Sertifikat React Developer untuk membangun aplikasi modern dengan React.",
+        "Sertifikat hasil tes uji kemahiran bahasa indonesia yang dikeluarkan oleh Badan Pengembangan dan Pembinaan Bahasa berlaku sampati tahun 2026",
       imgUrl: [ukbi],
     },
   ];
@@ -110,7 +110,7 @@ export const Certificates = () => {
                         style={{ 
                             borderRadius: "15px",
                             width: "100%",
-                            height: "250px",        // biar menyesuaikan proporsi gambar
+                            height: "200px",        // biar menyesuaikan proporsi gambar
                             aspectRatio: "4/3",    // default rasio, landscape-ish
                             objectFit: "cover"
                         }}
