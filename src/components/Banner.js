@@ -13,7 +13,7 @@ export const Banner = () => {
   const [index, setIndex] = useState(1);
 
   // Ganti sesuai role kamu
-  const toRotate = [ "Web Developer", "Quality Assurance" ];
+  const toRotate = [ "Web Developer", "Quality Assurance", "DevOps Engineer", "AI Implementator" ];
   const period = 2000;
 
   useEffect(() => {
