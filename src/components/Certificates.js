@@ -7,6 +7,8 @@ import competenceQA1 from "../assets/img/competence1.jpg";
 import competenceQA2 from "../assets/img/competence2.jpg";
 import toeic from "../assets/img/toeic.jpg"
 import ukbi from "../assets/img/ukbi.jpg"
+import ai1 from "../assets/img/ai1.jpg"
+import ai2 from "../assets/img/ai2.jpg"
 import "./Certificates.css";
 
 export const Certificates = () => {
@@ -54,6 +56,15 @@ export const Certificates = () => {
         "Sertifikat hasil tes uji kemahiran bahasa indonesia yang dikeluarkan oleh Badan Pengembangan dan Pembinaan Bahasa berlaku sampati tahun 2026",
       imgUrl: [ukbi],
     },
+    {
+      title: "Belajar Dasar Artificial Intelligence",
+      issuer: "Dicoding Indonesia",
+      date: "2025",
+      description:
+        "Sertifikat kelulusan dari Dicoding Indonesia yang membahas konsep dasar Artificial Intelligence, termasuk pengenalan AI, machine learning, deep learning, data preparation, serta penerapan AI dalam kehidupan dan pengembangan aplikasi.",
+      imgUrl: [ai1, ai2],
+    }
+
   ];
 
   const handleOpenModal = (cert) => {
