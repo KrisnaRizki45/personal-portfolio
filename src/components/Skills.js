@@ -72,8 +72,9 @@ export const Skills = () => {
             <div className="skill-bx animate__animated animate__fadeInUp">
               <h2 className="fw-bold mb-3">My Skills</h2>
               <p className="mb-5">
-                Berfokus pada <b>Web Development</b>, <b>Quality Assurance</b>, serta{" "}
-                <b>Content Creator</b>.
+                Berpengalaman dalam <b>Artificial Intelligence</b>, <b>Full Stack Development</b>,
+                <b> Mobile Development</b>, <b>DevOps</b>, <b>System Administration</b>,
+                <b> Quality Assurance</b>, serta <b>Enterprise Application Development</b>.
               </p>
 
               <Carousel
@@ -82,38 +83,103 @@ export const Skills = () => {
                 customLeftArrow={<CustomLeftArrow />}
                 customRightArrow={<CustomRightArrow />}
               >
-                {/* Web Development */}
+                {/* AI Engineering */}
                 <div className="item">
                   <Card
                     className="text-center shadow-lg border-0"
                     style={{
-                      minHeight: "220px",
+                      minHeight: "240px",
                       borderRadius: "20px",
                       background: "rgba(0,0,0,0.5)",
-                      transition: "transform 0.3s ease",
                     }}
                   >
                     <Card.Body>
                       <CodeSlash size={45} className="mb-3 text-info" />
                       <Card.Title className="fw-bold">
-                        Web Developer
+                        AI Engineering
                       </Card.Title>
                       <Card.Text>
-                        React.js, Laravel, HTML, CSS, JavaScript, PHP, MySQL
+                        Python, OpenAI API, LLM, Prompt Engineering, AI Automation,
+                        AI Integration
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </div>
 
-                {/* Quality Assurance */}
+                {/* Full Stack Development */}
                 <div className="item">
                   <Card
                     className="text-center shadow-lg border-0"
                     style={{
-                      minHeight: "220px",
+                      minHeight: "240px",
                       borderRadius: "20px",
                       background: "rgba(0,0,0,0.5)",
-                      transition: "transform 0.3s ease",
+                    }}
+                  >
+                    <Card.Body>
+                      <CodeSlash size={45} className="mb-3 text-primary" />
+                      <Card.Title className="fw-bold">
+                        Full Stack Development
+                      </Card.Title>
+                      <Card.Text>
+                        React, Next.js, TypeScript, Laravel, Node.js, Express.js,
+                        PHP, Golang
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                {/* Mobile Development */}
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <Card.Body>
+                      <CodeSlash size={45} className="mb-3 text-success" />
+                      <Card.Title className="fw-bold">
+                        Mobile Development
+                      </Card.Title>
+                      <Card.Text>
+                        Flutter, Dart, REST API
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <Card.Body>
+                      <CheckCircle size={45} className="mb-3 text-warning" />
+                      <Card.Title className="fw-bold">
+                        Backend & Database
+                      </Card.Title>
+                      <Card.Text>
+                        Prisma ORM, MySQL, PostgreSQL, Oracle,
+                        MongoDB, Supabase, Firebase
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
                     }}
                   >
                     <Card.Body>
@@ -122,75 +188,125 @@ export const Skills = () => {
                         Quality Assurance
                       </Card.Title>
                       <Card.Text>
-                        Manual Testing, Automation, Cypress, Postman, Selenium
+                        Cypress, Selenium, Postman,
+                        Manual Testing, API Testing,
+                        Automation Testing
                       </Card.Text>
                     </Card.Body>
                   </Card>
                 </div>
 
-                {/* Content Creator */}
                 <div className="item">
                   <Card
                     className="text-center shadow-lg border-0"
                     style={{
-                      minHeight: "220px",
+                      minHeight: "240px",
                       borderRadius: "20px",
                       background: "rgba(0,0,0,0.5)",
-                      transition: "transform 0.3s ease",
+                    }}
+                  >
+                    <Card.Body>
+                      <CodeSlash size={45} className="mb-3 text-danger" />
+                      <Card.Title className="fw-bold">
+                        DevOps & Infrastructure
+                      </Card.Title>
+                      <Card.Text>
+                        Git, GitHub, GitLab, CI/CD,
+                        Linux, Docker, Monitoring
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <Card.Body>
+                      <CodeSlash size={45} className="mb-3 text-light" />
+                      <Card.Title className="fw-bold">
+                        System Administration
+                      </Card.Title>
+                      <Card.Text>
+                        Windows, Linux, Server Management,
+                        SQL Tuning, Log Analysis
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <Card.Body>
+                      <CodeSlash size={45} className="mb-3 text-info" />
+                      <Card.Title className="fw-bold">
+                        Programming Languages
+                      </Card.Title>
+                      <Card.Text>
+                        JavaScript, TypeScript, Python,
+                        PHP, Golang, Dart, SQL
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    <Card.Body>
+                      <CodeSlash size={45} className="mb-3 text-primary" />
+                      <Card.Title className="fw-bold">
+                        Frameworks
+                      </Card.Title>
+                      <Card.Text>
+                        Next.js, React.js, Laravel,
+                        Django, Express.js,
+                        Flutter
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="item">
+                  <Card
+                    className="text-center shadow-lg border-0"
+                    style={{
+                      minHeight: "240px",
+                      borderRadius: "20px",
+                      background: "rgba(0,0,0,0.5)",
                     }}
                   >
                     <Card.Body>
                       <CameraVideo size={45} className="mb-3 text-warning" />
                       <Card.Title className="fw-bold">
-                        Content Creator
+                        Tools & Productivity
                       </Card.Title>
-                      <Card.Text>Canva, CapCut</Card.Text>
+                      <Card.Text>
+                        VS Code, DBeaver, Laragon,
+                        Microsoft Office,
+                        Canva, CapCut
+                      </Card.Text>
                     </Card.Body>
                   </Card>
                 </div>
-
-                {/* Sistem Operasi */}
-              <div className="item">
-                <Card
-                  className="text-center shadow-lg border-0"
-                  style={{
-                    minHeight: "220px",
-                    borderRadius: "20px",
-                    background: "rgba(0,0,0,0.5)",
-                    transition: "transform 0.3s ease",
-                  }}
-                >
-                  <Card.Body>
-                    <CodeSlash size={45} className="mb-3 text-primary" />
-                    <Card.Title className="fw-bold">Sistem Operasi</Card.Title>
-                    <Card.Text>
-                      Windows, Linux, macOS
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-
-              {/* Microsoft Office */}
-              <div className="item">
-                <Card
-                  className="text-center shadow-lg border-0"
-                  style={{
-                    minHeight: "220px",
-                    borderRadius: "20px",
-                    background: "rgba(0,0,0,0.5)",
-                    transition: "transform 0.3s ease",
-                  }}
-                >
-                  <Card.Body>
-                    <CheckCircle size={45} className="mb-3 text-warning" />
-                    <Card.Title className="fw-bold">Microsoft Office</Card.Title>
-                    <Card.Text>
-                      Word, Excel, PowerPoint, Outlook
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-
               </Carousel>
             </div>
           </div>

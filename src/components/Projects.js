@@ -1,24 +1,23 @@
-import { useState } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Tab,
-  Nav,
-  Modal,
-  Button,
-  Carousel,
-} from "react-bootstrap";
+import { useMemo, useState } from "react";
+import { Container, Row, Col, Tab, Nav, Modal, Button, Carousel } from "react-bootstrap";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
-export const Projects = () => {
-  const projects = [
+const tabs = [
+  { key: "all", label: "All Projects" },
+  { key: "web", label: "Web Apps" },
+  { key: "mobile", label: "Mobile Apps" },
+  { key: "ai", label: "AI Projects" },
+  { key: "other", label: "Others" },
+];
+
+const projects = [
   {
     title: "Ardexa",
     description: "Web Company Ardexa",
-    detail: "Website perusahaan PT Arsa Dalu Kreasi yang menampilkan layanan informasi lengkap mengenai perusahaan termasuk informasi karir dengan tampilan yang responsive",
+    detail:
+      "Website perusahaan PT Arsa Dalu Kreasi yang menampilkan layanan informasi lengkap mengenai perusahaan termasuk informasi karir dengan tampilan yang responsive.",
     tech: ["React JS", "Tailwind CSS", "Node JS"],
     imgUrl: [
       "/images/ardexa1.png",
@@ -27,41 +26,36 @@ export const Projects = () => {
       "/images/ardexa4.png",
       "/images/ardexa5.png",
       "/images/ardexa6.png",
-      "/images/ardexa7.png"
+      "/images/ardexa7.png",
     ],
     github: "https://github.com/KrisnaRizki45/PT.-ADK",
-    category: "web",
+    categories: ["web"],
   },
   {
     title: "JacketPedia",
-    description: "Website E-Commerce ",
-    detail: "Sebuah website e-commerce yang menjual jaket trendy dengan sistem manajemen keranjang belanja dan checkout untuk kebutuhan tugas akhir sekolah",
+    description: "Website E-Commerce",
+    detail:
+      "Sebuah website e-commerce yang menjual jaket trendy dengan sistem manajemen keranjang belanja dan checkout untuk kebutuhan tugas akhir sekolah.",
     tech: ["HTML", "CSS", "JavaScript", "Vue JS"],
-    imgUrl: [
-      "/images/E-Commerce1.png",
-      "/images/E-Commerce2.png",
-      "/images/E-Commerce3.png"
-    ],
+    imgUrl: ["/images/E-Commerce1.png", "/images/E-Commerce2.png", "/images/E-Commerce3.png"],
     github: "https://github.com/KrisnaRizki45/JacketPedia",
-    category: "web",
+    categories: ["web"],
   },
   {
     title: "E-Lib",
     description: "Aplikasi Perpustakaan",
-    detail: "Merupakan aplikasi perpustakaan digital SMKN 4 Bandung website yang dinamis dengan sistem role admin staff siswa memiliki database",
+    detail:
+      "Merupakan aplikasi perpustakaan digital SMKN 4 Bandung website yang dinamis dengan sistem role admin, staff, siswa, dan database.",
     tech: ["Laravel", "PHP", "MySQL"],
-    imgUrl: [
-      "/images/E-Lib1.png",
-      "/images/E-Lib2.png",
-      "/images/E-Lib3.png"
-    ],
-    github: "#",
-    category: "web",
+    imgUrl: ["/images/E-Lib1.png", "/images/E-Lib2.png", "/images/E-Lib3.png"],
+    github: "",
+    categories: ["web"],
   },
   {
     title: "GerobakIn",
     description: "Aplikasi penitipan gerobak",
-    detail: "Merupakan aplikasi penitipan gerobak dengan sistem crud, login jwt, token, dan database dengan tampilan responsive",
+    detail:
+      "Merupakan aplikasi penitipan gerobak dengan sistem CRUD, login JWT token, dan database dengan tampilan responsive.",
     tech: ["React.js", "Bootstrap", "Laravel", "MySQL", "JWT Token", "CRUD"],
     imgUrl: [
       "/images/gerobak5.png",
@@ -76,12 +70,13 @@ export const Projects = () => {
       "/images/gerobak4.png",
     ],
     github: "https://github.com/KrisnaRizki45/GerobakIn",
-    category: "web",
+    categories: ["web"],
   },
   {
     title: "Laundry App",
     description: "Sistem manajemen laundry",
-    detail: "Aplikasi sistem manajemen laundry dengan sistem CRUD, Login JWT Token, Registrasi, dan api buatan dengan tampilan responsive",
+    detail:
+      "Aplikasi sistem manajemen laundry dengan sistem CRUD, login JWT token, registrasi, dan API buatan dengan tampilan responsive.",
     tech: ["React.js", "Bootstrap", "HeroUI", "Tailwind CSS"],
     imgUrl: [
       "/images/laundry3.png",
@@ -99,38 +94,100 @@ export const Projects = () => {
       "/images/laundry2.png",
     ],
     github: "https://github.com/KrisnaRizki45/laundry-app",
-    category: "web",
+    categories: ["web"],
   },
   {
     title: "Movify",
     description: "Website streaming film",
-    detail: "Website streaming film dengan api dari TMDB yang responsive",
+    detail: "Website streaming film dengan API dari TMDB yang responsive.",
     tech: ["React.js", "Bootstrap", "Tailwind CSS", "API TMDB"],
-    imgUrl: [
-      "/images/movify1.png",
-      "/images/movify2.png",
-      "/images/movify3.png",
-      "/images/movify4.png"
-    ],
+    imgUrl: ["/images/movify1.png", "/images/movify2.png", "/images/movify3.png", "/images/movify4.png"],
     github: "https://github.com/KrisnaRizki45/Challange-react-movie",
-    category: "other",
+    categories: ["other"],
   },
   {
     title: "Content Creator",
     description: "Sosial Media Perusahaan",
-    detail: "Profile sosial media dari perusahaan yang saya sebagai content creator nya di Instagram dan Tiktok",
+    detail:
+      "Profile sosial media dari perusahaan tempat saya berperan sebagai content creator di Instagram dan TikTok.",
     tech: ["Canva", "Capcut"],
+    imgUrl: ["/images/contentCreator1.png", "/images/contentCreator2.png"],
+    github: "",
+    categories: ["other"],
+  },
+  {
+    title: "MSO3 Tools",
+    description: "Enterprise Operations & AI Workspace",
+    detail:
+      "MSO3 Tools merupakan platform enterprise internal yang dikembangkan sebagai pusat operasional digital bagi tim MSO PT Neuronworks Indonesia. Platform ini mengintegrasikan Ticket Management, User Management, AI Chat berbasis Large Language Models, AI Knowledge Base, Reporting & Data Analytics, API Monitoring, Dashboard Monitoring, Approval Management, Data Extraction, Automation Tools, hingga System Configuration.",
+    tech: ["Next.js", "React", "TypeScript", "Node.js", "Prisma", "PostgreSQL", "Tailwind CSS", "LLM Models"],
     imgUrl: [
-      "/images/contentCreator1.png",
-      "/images/contentCreator2.png",
+      "/images/msos (1).png",
+      "/images/msos (2).png",
+      "/images/msos (3).png",
+      "/images/msos (4).png",
+      "/images/msos (5).png",
+      "/images/msos (6).png",
+      "/images/msos (7).png",
+      "/images/msos (8).png",
     ],
-    github: "#",
-    category: "other",
+    github: "https://github.com/oponeuron-sketch/mso3-tools.git",
+    categories: ["web", "ai"],
+  },
+  {
+    title: "Personal Portfolio",
+    description: "Modern Developer Portfolio",
+    detail:
+      "Website portofolio pribadi yang menampilkan profil profesional, pengalaman kerja, proyek, keahlian, sertifikasi, serta informasi kontak. Dibangun dengan desain modern, responsif, dan interaktif.",
+    tech: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+    imgUrl: ["/images/porto (1).png", "/images/porto (2).png", "/images/porto (3).png", "/images/porto (4).png"],
+    github: "https://github.com/KrisnaRizki45/portofolio-emil.git",
+    categories: ["web"],
+  },
+  {
+    title: "UT Online Mobile",
+    description: "Telkom Technician Mobile Application",
+    detail:
+      "Aplikasi mobile yang digunakan untuk mendukung aktivitas operasional teknisi Telkom di lapangan. Menyediakan fitur monitoring order, validasi pekerjaan, pelaporan progres, manajemen data pelanggan, serta integrasi dengan sistem backend.",
+    tech: ["Flutter", "Dart", "REST API", "Oracle Database"],
+    imgUrl: ["/images/utmobile1.png", "/images/utmobile2.png", "/images/utmobile3.png", "/images/utmobile4.png"],
+    github: "https://github.com/KrisnaRizki45/ut-mobile.git",
+    categories: ["mobile"],
+    imageMode: "portrait",
+  },
+  {
+    title: "PTBMA",
+    description: "Enterprise Management Information System",
+    detail:
+      "Aplikasi enterprise berbasis web yang dikembangkan untuk mendukung pengelolaan data operasional dan administrasi perusahaan. Memiliki fitur dashboard, manajemen data, monitoring, reporting, autentikasi pengguna, serta visualisasi informasi.",
+    tech: ["React", "Laravel", "PHP", "MySQL", "Tailwind CSS"],
+    imgUrl: [
+      "/images/ptbma1.png",
+      "/images/ptbma2.png",
+      "/images/ptbma3.png",
+      "/images/ptbma4.png",
+      "/images/ptbma5.png",
+      "/images/ptbma6.png",
+      "/images/ptbma7.png",
+    ],
+    github: "https://github.com/KrisnaRizki45/PT-BMA.git",
+    categories: ["web"],
   },
 ];
 
+export const Projects = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const projectGroups = useMemo(
+    () =>
+      tabs.reduce((groups, tab) => {
+        groups[tab.key] =
+          tab.key === "all" ? projects : projects.filter((project) => project.categories.includes(tab.key));
+        return groups;
+      }, {}),
+    []
+  );
 
   const handleOpenModal = (project) => {
     setSelectedProject(project);
@@ -142,125 +199,57 @@ export const Projects = () => {
     setSelectedProject(null);
   };
 
-  // Komponen ProjectCard
   const ProjectCard = ({ project }) => (
-    <div
-      className="project-card shadow-lg p-3 h-100"
-      style={{
-        borderRadius: "20px",
-        background:
-          "linear-gradient(135deg, rgba(13,110,253,0.9), rgba(102,16,242,0.9))",
-        color: "white",
-        cursor: "pointer",
-        transition: "all 0.3s ease",
-      }}
-      onClick={() => handleOpenModal(project)}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-10px) scale(1.03)";
-        e.currentTarget.style.boxShadow = "0 8px 20px rgba(102,16,242,0.6)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
-      }}
-    >
-      <img
-        src={project.imgUrl[0]}
-        alt={project.title}
-        className="img-fluid rounded mb-3"
-        style={{ borderRadius: "15px", objectFit: "cover", height: "auto", width: "100%" }}
-      />
-      <h5
-        className="fw-bold"
-        style={{
-          fontSize: "1.1rem",
-          marginBottom: "0.3rem",
-          lineHeight: "1.3",
-          color: "#ffffff",
-          textShadow: "1px 1px 2px rgba(0,0,0,0.5)",
-        }}
-      >
-        {project.title}
-      </h5>
-      <p
-        style={{
-          fontSize: "0.9rem",
-          color: "#e0e0e0",
-          margin: "0",
-          padding: "0",
-          lineHeight: "1.4",
-          textAlign: "justify",
-        }}
-      >
-        {project.description}
-      </p>
-    </div>
+    <button type="button" className="project-card" onClick={() => handleOpenModal(project)}>
+      <span className={`project-card__media ${project.imageMode === "portrait" ? "is-portrait" : ""}`}>
+        <img src={project.imgUrl[0]} alt={project.title} loading="lazy" />
+      </span>
+      <span className="project-card__body">
+        <span className="project-card__title">{project.title}</span>
+        <span className="project-card__description">{project.description}</span>
+        <span className="project-card__meta">{project.tech.slice(0, 3).join(" | ")}</span>
+      </span>
+    </button>
+  );
+
+  const ProjectGrid = ({ items }) => (
+    <Row className="project-grid">
+      {items.map((project) => (
+        <Col key={project.title} xs={12} sm={6} lg={4} className="project-grid__item">
+          <ProjectCard project={project} />
+        </Col>
+      ))}
+    </Row>
   );
 
   return (
-    <section className="project" id="projects" style={{ position: "relative" }}>
+    <section className="project" id="projects">
       <Container>
         <Row>
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2 className="fw-bold text-center">Projects</h2>
-                  <p className="text-center mb-5">
+                  <h2>Projects</h2>
+                  <p className="project__intro">
                     Berikut beberapa project yang pernah saya kerjakan. Klik card untuk melihat detail project.
                   </p>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Nav
-                      variant="pills"
-                      className="nav-pills mb-5 justify-content-center align-items-center"
-                    >
-                      <Nav.Item>
-                        <Nav.Link eventKey="first">All Projects</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="second">Web Apps</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="third">Others</Nav.Link>
-                      </Nav.Item>
+
+                  <Tab.Container id="projects-tabs" defaultActiveKey="all">
+                    <Nav variant="pills" className="project-tabs mb-5">
+                      {tabs.map((tab) => (
+                        <Nav.Item key={tab.key}>
+                          <Nav.Link eventKey={tab.key}>{tab.label}</Nav.Link>
+                        </Nav.Item>
+                      ))}
                     </Nav>
+
                     <Tab.Content className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                      {/* All Projects */}
-                      <Tab.Pane eventKey="first">
-                        <Row>
-                          {projects.map((project, index) => (
-                            <Col key={index} sm={6} md={4} className="mb-4">
-                              <ProjectCard project={project} />
-                            </Col>
-                          ))}
-                        </Row>
-                      </Tab.Pane>
-
-                      {/* Web Apps */}
-                      <Tab.Pane eventKey="second">
-                        <Row>
-                          {projects
-                            .filter((p) => p.category === "web")
-                            .map((project, index) => (
-                              <Col key={index} sm={6} md={4} className="mb-4">
-                                <ProjectCard project={project} />
-                              </Col>
-                            ))}
-                        </Row>
-                      </Tab.Pane>
-
-                      {/* Others */}
-                      <Tab.Pane eventKey="third">
-                        <Row>
-                          {projects
-                            .filter((p) => p.category === "other")
-                            .map((project, index) => (
-                              <Col key={index} sm={6} md={4} className="mb-4">
-                                <ProjectCard project={project} />
-                              </Col>
-                            ))}
-                        </Row>
-                      </Tab.Pane>
+                      {tabs.map((tab) => (
+                        <Tab.Pane eventKey={tab.key} key={tab.key}>
+                          <ProjectGrid items={projectGroups[tab.key]} />
+                        </Tab.Pane>
+                      ))}
                     </Tab.Content>
                   </Tab.Container>
                 </div>
@@ -270,163 +259,57 @@ export const Projects = () => {
         </Row>
       </Container>
 
-      {/* Modal */}
       <Modal
         show={showModal}
         onHide={handleCloseModal}
         centered
-        size="md"
-        dialogClassName="custom-modal"
-        contentClassName="border-0 rounded-4 shadow-lg position-relative"
+        className="project-modal-shell"
+        backdrop={false}
+        dialogClassName="project-modal"
+        contentClassName="project-modal__content"
       >
-        <div
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(13,110,253,0.95), rgba(102,16,242,0.95))",
-            color: "white",
-            borderRadius: "1rem",
-            padding: "2rem",
-            position: "relative",
-            textAlign: "left",
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
-            <h4 className="fw-bold mb-0">{selectedProject?.title}</h4>
-            <button
-              onClick={handleCloseModal}
-              style={{
-                background: "transparent",
-                border: "none",
-                color: "white",
-                fontSize: "1.8rem",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#ffc107")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
-            >
-              ✖
-            </button>
+        {selectedProject && (
+          <div className="project-modal__inner">
+            <div className="project-modal__header">
+              <div>
+                <span className="project-modal__eyebrow">{selectedProject.description}</span>
+                <h4>{selectedProject.title}</h4>
+              </div>
+              <button type="button" className="project-modal__close" onClick={handleCloseModal} aria-label="Close">
+                x
+              </button>
+            </div>
+
+            <Carousel interval={null} className="project-carousel">
+              {selectedProject.imgUrl.map((img, idx) => (
+                <Carousel.Item key={img}>
+                  <div className={`project-carousel__frame ${selectedProject.imageMode === "portrait" ? "is-portrait" : ""}`}>
+                    <img src={img} alt={`${selectedProject.title} screenshot ${idx + 1}`} />
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+
+            <p className="project-modal__detail">{selectedProject.detail}</p>
+
+            <div className="project-modal__tech">
+              {selectedProject.tech.map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+
+            {selectedProject.github && (
+              <div className="project-modal__actions">
+                <Button variant="light" onClick={() => window.open(selectedProject.github, "_blank", "noreferrer")}>
+                  Visit GitHub
+                </Button>
+              </div>
+            )}
           </div>
-
-          {selectedProject && (
-            <>
-              <Carousel
-              interval={null}
-              className="mb-4"
-              nextIcon={
-                <span
-                  style={{
-                    background: "rgba(0,0,0,0.3)",
-                    borderRadius: "50%",
-                    width: "40px",
-                    height: "40px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    color: "white",
-                    fontSize: "1.5rem",
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.5))",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #0d6efd, #6610f2)";
-                    e.currentTarget.style.transform = "scale(1.2)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(0,0,0,0.3)";
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
-                >
-                  ❯
-                </span>
-              }
-              prevIcon={
-                <span
-                  style={{
-                    background: "rgba(0,0,0,0.3)",
-                    borderRadius: "50%",
-                    width: "40px",
-                    height: "40px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    color: "white",
-                    fontSize: "1.5rem",
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    transition: "all 0.3s ease",
-                    filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.5))",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background =
-                      "linear-gradient(135deg, #0d6efd, #6610f2)";
-                    e.currentTarget.style.transform = "scale(1.2)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(0,0,0,0.3)";
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
-                >
-                  ❮
-                </span>
-              }
-            >
-                {selectedProject.imgUrl.map((img, idx) => (
-                  <Carousel.Item key={idx}>
-                    <img
-                      className="d-block w-100 rounded-3"
-                      src={img}
-                      alt={`Slide ${idx + 1}`}
-                      style={{ objectFit: "cover", maxHeight: "300px" }}
-                    />
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-
-              <p style={{ marginBottom: "1.5rem" }}>{selectedProject?.detail}</p>
-
-              <h6 className="fw-bold mb-2">Tech Stack:</h6>
-              <ul style={{ paddingLeft: "20px", marginBottom: "2rem" }}>
-                {selectedProject?.tech.map((t, idx) => (
-                  <li key={idx}>{t}</li>
-                ))}
-              </ul>
-
-              {selectedProject?.github && (
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                  <Button
-                    variant="light"
-                    onClick={() => window.open(selectedProject.github, "_blank")}
-                    style={{ borderRadius: "10px", transition: "all 0.3s ease", color: "#000" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#333";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "";
-                      e.currentTarget.style.color = "#000";
-                    }}
-                  >
-                    🔗 Visit GitHub
-                  </Button>
-                </div>
-              )}
-            </>
-          )}
-        </div>
+        )}
       </Modal>
 
-      {/* Background */}
-      <img
-        className="background-image-right"
-        src={colorSharp2}
-        alt="bg"
-        style={{ position: "absolute", right: 0, bottom: 0, width: "250px", opacity: 0.2 }}
-      />
+      <img className="background-image-right" src={colorSharp2} alt="" />
     </section>
   );
 };
