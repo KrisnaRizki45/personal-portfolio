@@ -156,7 +156,7 @@ const projects = [
     imageMode: "portrait",
   },
   {
-    title: "PTBMA",
+    title: "SAMS Bhumiadya",
     description: "Enterprise Management Information System",
     detail:
       "Aplikasi enterprise berbasis web yang dikembangkan untuk mendukung pengelolaan data operasional dan administrasi perusahaan. Memiliki fitur dashboard, manajemen data, monitoring, reporting, autentikasi pengguna, serta visualisasi informasi.",
