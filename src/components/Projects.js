@@ -173,6 +173,30 @@ const projects = [
     github: "https://github.com/KrisnaRizki45/PT-BMA.git",
     categories: ["web"],
   },
+  {
+  title: "API Support Workspace",
+  description: "Enterprise API Management & Monitoring Platform",
+  detail:
+    "Platform internal yang dikembangkan untuk mendukung aktivitas Technical Support dan Developer dalam mengelola serta melakukan monitoring API pada berbagai aplikasi enterprise. Menyediakan fitur API Testing, Request Builder, Response Viewer, Environment Management, Authentication, API Documentation, History Request, Dashboard Monitoring, serta integrasi dengan berbagai layanan internal untuk mempercepat proses troubleshooting, validasi, dan pengembangan sistem.",
+  tech: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "Supabase",
+    "REST API",
+    "Tailwind CSS"
+  ],
+  imgUrl: [
+    "/images/apitools (1).png",
+    "/images/apitools (2).png",
+    "/images/apitools (3).png",
+    "/images/apitools (4).png",
+  ],
+  github: "",
+  categories: ["web"],
+},
 ];
 
 export const Projects = () => {
