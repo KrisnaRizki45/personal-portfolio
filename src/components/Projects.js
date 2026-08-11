@@ -119,8 +119,19 @@ const projects = [
     title: "MSO3 Tools",
     description: "Enterprise Operations & AI Workspace",
     detail:
-      "MSO3 Tools merupakan platform enterprise internal yang dikembangkan sebagai pusat operasional digital bagi tim MSO PT Neuronworks Indonesia. Platform ini mengintegrasikan Ticket Management, User Management, AI Chat berbasis Large Language Models, AI Knowledge Base, Reporting & Data Analytics, API Monitoring, Dashboard Monitoring, Approval Management, Data Extraction, Automation Tools, hingga System Configuration.",
-    tech: ["Next.js", "React", "TypeScript", "Node.js", "Prisma", "PostgreSQL", "Tailwind CSS", "LLM Models"],
+      "MSO3 Tools merupakan platform enterprise internal yang dikembangkan sebagai pusat operasional digital bagi tim MSO PT Neuronworks Indonesia. Platform ini mengintegrasikan berbagai kebutuhan operasional seperti Ticket Management, User Management, AI Chat berbasis Large Language Models (LLMs), AI Knowledge Base dengan pendekatan RAG, Reporting & Data Analytics, API Monitoring, Dashboard Monitoring, Approval Management, Data Extraction, Automation Tools, hingga System Configuration. Platform ini dikembangkan untuk membantu meningkatkan efisiensi operasional, mempercepat proses troubleshooting, menyediakan akses knowledge secara terpusat, serta mendukung penerapan AI dalam workflow operasional.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "LLM Models",
+      "RAG",
+      "AI Integration"
+    ],
     imgUrl: [
       "/images/msos (1).png",
       "/images/msos (2).png",
@@ -130,6 +141,9 @@ const projects = [
       "/images/msos (6).png",
       "/images/msos (7).png",
       "/images/msos (8).png",
+      "/images/msos (9).png",
+      "/images/msos (10).png",
+      "/images/msos (11).png"
     ],
     github: "https://github.com/oponeuron-sketch/mso3-tools.git",
     categories: ["web", "ai"],
@@ -196,7 +210,38 @@ const projects = [
   ],
   github: "",
   categories: ["web"],
-},
+  },
+  {
+    title: "LaptopSense AI",
+    description: "Deep Learning Laptop Image Classification",
+    detail:
+      "LaptopSense AI merupakan aplikasi web berbasis Machine Learning dan Deep Learning yang digunakan untuk mengenali dan mengklasifikasikan laptop berdasarkan gambar. Pengguna dapat mengunggah gambar atau menggunakan kamera untuk mengambil gambar laptop, kemudian sistem melakukan preprocessing image dan menjalankan prediksi menggunakan model TensorFlow.js. Model dilatih menggunakan dataset berlabel dengan pendekatan supervised learning dan image classification untuk mengenali kategori laptop seperti HP ProBook 635 Aero G7 dan MSI Cyborg 15 A12V. Sistem juga dilengkapi confidence threshold sebagai guard untuk membantu menangani input dengan tingkat keyakinan prediksi yang rendah.",
+    tech: [
+      "Python",
+      "Flask",
+      "TensorFlow.js",
+      "Deep Learning",
+      "CNN",
+      "Image Classification",
+      "Supervised Learning",
+      "Teachable Machine",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "SweetAlert2"
+    ],
+    imgUrl: [
+      "/images/laptoscanai (8).png",
+      "/images/laptoscanai (9).png",
+      "/images/laptoscanai (1).png",
+      "/images/laptoscanai (4).png",
+      "/images/laptoscanai (5).png",
+      "/images/laptoscanai (6).png",
+      "/images/laptoscanai (7).png"
+    ],
+    github: "https://github.com/KrisnaRizki45/LaptoScan-AI",
+    categories: ["ai", "other"],
+  },
 ];
 
 export const Projects = () => {
@@ -287,6 +332,7 @@ export const Projects = () => {
         show={showModal}
         onHide={handleCloseModal}
         centered
+        scrollable
         className="project-modal-shell"
         backdrop={false}
         dialogClassName="project-modal"
