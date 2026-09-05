@@ -14,12 +14,12 @@ export const Banner = () => {
 
   // Ganti sesuai role kamu
  const toRotate = [
+  "Full Stack Development",
   "AI Engineer",
-  "Full Stack Engineer",
   "Software Engineer",
-  "Technical Support Engineer",
-  "DevOps Engineer",
-  "Quality Assurance Engineer"
+  "Technical Support",
+  "DevOps",
+  "Quality Assurance"
 ];
 
   const period = 2000;
@@ -70,25 +70,16 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Krisna`} <span className="txt-rotate"><span className="wrap">{text}</span></span></h1>
                 <p>
-                  Saya merupakan seorang <strong>Software Engineer</strong> yang memiliki
-                  minat kuat pada <strong>Full Stack Development</strong>,
-                  <strong>Artificial Intelligence (AI)</strong>, dan 
-                  <strong>Enterprise System Development</strong>. Berpengalaman dalam
-                  mengembangkan aplikasi web dan mobile menggunakan teknologi modern seperti
-                  <strong>Next.js, React, TypeScript, Laravel, Flutter, Golang, Prisma, PostgreSQL, MongoDB</strong>,
-                  serta mengintegrasikan <strong>REST API</strong> dan
-                  <strong>Large Language Models (LLMs)</strong> untuk membangun solusi yang
-                  cerdas dan efisien.
+                  I am a <strong>Software Engineer</strong> with experience across the
+                  end-to-end software development lifecycle, from requirements analysis,
+                  system design, and development to testing, deployment, monitoring,
+                  troubleshooting, and continuous improvement.
                   <br /><br />
-                  Selain pengembangan aplikasi, saya juga memiliki pengalaman sebagai
-                  <strong>Technical Support Engineer</strong>,
-                  <strong>Quality Assurance</strong>, dan
-                  <strong>System Administrator</strong> dalam menangani monitoring sistem,
-                  troubleshooting, automation, SQL tuning, deployment, serta pengembangan
-                  tools internal untuk meningkatkan produktivitas operasional. Saya percaya
-                  bahwa teknologi terbaik bukan hanya berfungsi dengan baik, tetapi juga mampu
-                  memberikan nilai nyata bagi bisnis melalui solusi yang scalable, berkualitas,
-                  dan inovatif.
+                  My experience spans <strong>Full-Stack Development, AI, automation,
+                  quality assurance, DevOps, and technical operations</strong>. I enjoy
+                  solving complex technical problems and building <strong>reliable,
+                  scalable, secure, and maintainable</strong> software solutions that
+                  create meaningful value for users and businesses.
                 </p>
                 <button onClick={() => console.log('connect')}>
                   Let’s Connect <ArrowRightCircle size={25} />
